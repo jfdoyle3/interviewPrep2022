@@ -1,18 +1,22 @@
+ 
 import java.io.*;
 import java.math.*;
+import java.security.*;
 import java.text.*;
 import java.util.*;
+import java.util.concurrent.*;
 import java.util.regex.*;
 
 public class Solution {
 
-
-    static int simpleArraySum(int[] ar) {
-        int total=0;
+    // Complete the aVeryBigSum function below.
+    static long aVeryBigSum(long[] ar) {
+        long number=0;
         for (int idx=0; idx<ar.length; idx++){
-            total+=ar[idx];
+            number=number+ar[idx];
         }
-        return total;
+
+        return number;
     }
 
     private static final Scanner scanner = new Scanner(System.in);
@@ -20,22 +24,26 @@ public class Solution {
     public static void main(String[] args) throws IOException {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
-        int arCount = Integer.parseInt(scanner.nextLine().trim());
+        int arCount = scanner.nextInt();
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
-        int[] ar = new int[arCount];
+        long[] ar = new long[arCount];
 
         String[] arItems = scanner.nextLine().split(" ");
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
-        for (int arItr = 0; arItr < arCount; arItr++) {
-            int arItem = Integer.parseInt(arItems[arItr].trim());
-            ar[arItr] = arItem;
+        for (int i = 0; i < arCount; i++) {
+            long arItem = Long.parseLong(arItems[i]);
+            ar[i] = arItem;
         }
 
-        int result = simpleArraySum(ar);
+        long result = aVeryBigSum(ar);
 
         bufferedWriter.write(String.valueOf(result));
         bufferedWriter.newLine();
 
         bufferedWriter.close();
+
+        scanner.close();
     }
 }
