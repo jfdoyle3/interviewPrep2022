@@ -1,84 +1,94 @@
-package HackRankSandbox;
+import java.io.*;
+import java.util.*;
 
-import java.util.Arrays;
-
-/*
-S - Split  /   C - Combine
---------------------------------------
-M - Method / C - Class / V - Variable
-
-S;V;pictureFrame                picture frame
-
-S;C;LargeSoftwareBook           large software book
-
-S;M;plasticCup()                plastic cup
-
----------------------------------------------------------------
-
-C;V;mobile phone                mobilePhone
-
-C;C;coffee machine              CoffeeMachine
-
-C;M;white sheet of paper        whiteSheetOfPaper()
-
-
-
- */
-public class App {
+public class Solution {
 
     public static void main(String[] args) {
-
-        String splitMethodTest = "S;M;plasticCup()";
-        String combineMethodTest = "C;M;white sheet of paper";
-
-        String[] splitTestArr = splitMethodTest.split(";");
-        String[] combineTestArr = combineMethodTest.split(";");
-
-        String splitInput = splitTestArr[2];
-        String combineInput = combineTestArr[2];
-
-        if (splitTestArr[1].equals("M")) {
-            splitInput = splitInput.substring(0, splitInput.length() - 2);
+        List<String> testCases=new ArrayList<>();
+        Scanner scan=new Scanner(System.in);
+        while(scan.hasNext()){
+        String input=scan.nextLine();
+        testCases.add(input);
         }
-
-        if (combineTestArr[1].equals("M")) {
-            combineInput = combineTestArr[2] + "()";
+        scan.close();
+        for(String testCase : testCases){
+          
         }
-
-      //  SplitMethods(splitInput);
-        CombineMethods(combineInput);
+        
+                
+        // String[] splitTestArr = input.split(";");
+        
+        // String splitInput = splitTestArr[2];
+        // String combineInput="";
+        
+        // switch(splitTestArr[0]){
+          
+        //   case "S":{
+        //              splitMethods(splitTestArr[2]);
+        //             }
+        //   case "C":{
+        //             combineMethods(splitTestArr[2]);
+        //           }
+          
+          
+          
+        
+        // boolean to trigger which methods
+      //   if (splitTestArr[1].equals("M")) {
+      //       splitInput = splitInput.substring(0, splitInput.length() - 2);
+      //   }
+      //   if (splitTestArr[0].equals("C") && splitTestArr[1].equals("M")) {
+      //       combineInput = splitTestArr[2] + "()";
+            
+      //   }
+ 
+      //  if(splitTestArr[0].equals("S"))
+      //      splitMethods(splitInput);
+       
+      //  if(splitTestArr[0].equals("C"))
+      //      combineMethods(combineInput);
+           
+           
+        
+        
     }
-
-    public static void SplitMethods(String input) {
-
-        String[] strArr = input.split("");
-        StringBuilder builder = new StringBuilder(strArr.length + 1);
+    
+    public static void splitMethods(String input){
+       StringBuilder builder = new StringBuilder();
 
         for (int letter = 0; letter < input.length(); letter++) {
             if (Character.isUpperCase(input.charAt(letter))) {
-                builder.append(" ").append(Character.toLowerCase(input.charAt(letter)));
+                builder.append(" ")
+                       .append(Character.toLowerCase(input.charAt(letter)));
                 continue;
             }
             builder.append(input.charAt(letter));
         }
-        System.out.println(builder.toString());
+        System.out.println(builder.toString().trim());
     }
+    
+    public static void combineMethods(String input) {
 
-    public static void CombineMethods(String input) {
-       
         String[] strArr = input.split(" ");
-        StringBuilder builder = new StringBuilder(strArr.length);
-        builder.append(Character.toLowerCase(strArr[0].charAt(0)));
-        for(int word=0; word<strArr.length; word++){
-            if(Character.isLowerCase(input.charAt(word)))
-                continue;
-            
-            builder.append(input.charAt(word));
-            
-        }
-            
+        StringBuilder builder = new StringBuilder();
+        String lastElement=strArr[strArr.length - 1];
+        int startIndex=0;
         
-        System.out.println(builder);  
+        System.out.println(Arrays.toString(strArr));
+        
+        
+        if (lastElement.charAt(lastElement.length()-1) == ')') {
+            builder.append(strArr[0].substring(0, 1).toLowerCase())
+                   .append(strArr[0].substring(1));
+            startIndex=1;
+        }
+        
+        for (int word = startIndex; word < strArr.length; word++) {
+           
+            builder.append(strArr[word].substring(0, 1).toUpperCase())
+                   .append(strArr[word].substring(1));
+        }
+
+        System.out.println(builder.toString().trim());
     }
 }
-// Arrays.asList(strArr).forEach(word->System.out.println(word));
