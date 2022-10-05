@@ -64,7 +64,6 @@ class Result {
     }
     
     return results;
-    
     } 
 }
 
