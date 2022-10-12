@@ -10,6 +10,8 @@ import java.util.stream.*;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
+
+
 class Result {
 
     /*
@@ -20,15 +22,25 @@ class Result {
      */
 
     public static int flippingMatrix(List<List<Integer>> matrix) {
-    
+    int results=0;
     int quad=matrix.size()/2;
-    
-    for(int row=0; row<matrix.size(); row++){
-        for(int col=0; col<matrix.size(); col++){
-            System.out.println(matrix.get(row).get(col));
-        }   
+    int matrixSize=matrix.size();
+    int blockSize=matrixSize-1;
+    int row1=0;
+    int row2=0;
+
+
+    for (int row=0; row<quad; row++){
+        for(int col=0; col<quad; col++){
+
+            System.out.println(matrix.get(row).get(col)+","+matrix.get(row+1).get(col));
+
+            System.out.println(row1);
+
+        }
+
     }
-        return 9429;
+        return 9999;
     }
 
 }
