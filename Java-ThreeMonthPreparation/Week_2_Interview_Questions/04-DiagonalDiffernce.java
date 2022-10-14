@@ -20,17 +20,14 @@ class Result {
      */
 
     public static int diagonalDifference(List<List<Integer>> arr) {
-        int gridSize=arr.get(0).size()-1;
-        int left=arr.get(0).get(0)+arr.get(0).get(gridSize);
-        int right=arr.get(0).get(gridSize)+arr.get(gridSize).get(0);
-        // for(int row=0; row<gridSize; row++){
-        //     for(int col=0; col<gridSize; col++){
-             //    left=arr.get(0).get(0)+arr.get(1).get(1)+arr.get(gridSize).get(gridSize);
-             //    right=arr.get(0).get(gridSize)+arr.get(1).get(1)+arr.get(gridSize).get(0);
+        int leftDiagSum=0;
+        int rightDiagSum=0;
 
-            //}
-       // }
-        return Math.abs(left-right);
+         for(int idx=0; idx<arr.size(); idx++){
+                leftDiagSum+=arr.get(idx).get(idx);
+                rightDiagSum+=arr.get(idx).get((arr.size()-1)-idx);
+        }
+        return Math.abs(leftDiagSum-rightDiagSum);
     }
 
 }
@@ -65,4 +62,3 @@ public class Solution {
         bufferedWriter.close();
     }
 }
-
