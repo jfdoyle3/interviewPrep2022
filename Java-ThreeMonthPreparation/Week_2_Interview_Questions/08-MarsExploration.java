@@ -22,12 +22,22 @@ class Result {
     public static int marsExploration(String s) {
 
        int errorCount=0;
-       String[] message=s.split("(?<=\\G.{3})");
-        System.out.println(Arrays.deepToString(message));
-       for(int idx=0; idx<message.length; idx++){
-           if(!message[idx].equals("SOS"))
-               errorCount++;
+       int idx=0;
+
+       do{
+           if(s.charAt(idx)!='S')
+                errorCount++;
+
+           if(s.charAt(idx+1)!='O')
+                errorCount++;
+
+           if(s.charAt(idx+2)!='S')
+                errorCount++;
+
+            idx+=3;
        }
+       while(idx<s.length());
+
         return errorCount;
     }
 
