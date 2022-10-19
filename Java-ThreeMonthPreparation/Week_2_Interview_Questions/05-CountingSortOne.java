@@ -25,7 +25,7 @@ class Result {
       for (int idx=0; idx<arr.size(); idx++)
           results.set(arr.get(idx),results.get(arr.get(idx))+1);
       
-    return results;
+      return results;
     }
 
 }
