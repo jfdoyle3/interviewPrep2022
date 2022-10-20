@@ -19,18 +19,34 @@ class Result {
      * The function accepts INTEGER_ARRAY sticks as parameter.
      */
 
-    public static List<Integer> maximumPerimeterTriangle(List<Integer> sticks) {      List<Integer> results=new ArrayList<>();
-        if(sticks.size()<3){
-          results.add(-1);
-          return results;
-        }
+    public static List<Integer> maximumPerimeterTriangle(List<Integer> sticks) {  
+      
+        List<Integer> results=new ArrayList<>();
+        
+        int stickSize=sticks.size();
+          
+
+        if(sticks.get(0)+sticks.get(1)>sticks.get(2) && 
+             sticks.get(0)+sticks.get(2)>sticks.get(1) &&
+             sticks.get(1)+sticks.get(2)>sticks.get(0)
+             )
+                System.out.println("Triangle");
+          else
+                System.out.println("Nope");
           
         // sides: A B C
         // to see if triangle is true
         // A+B>C, A+C>B, B+C>A
         
-        results.add(33333);
+        
         return results;
+    }
+    
+    public boolean isTriangle(List<Integer> input, int size){
+          
+      
+      return true;
+      
     }
 
 }
