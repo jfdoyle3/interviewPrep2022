@@ -27,7 +27,7 @@ class Result {
             for(char letter='a'; letter<='z'; letter++){
                  if(s.toLowerCase().charAt(idx)==letter)
                      letters.add(letter);
-         }
+			}
         }
         return letters.size()==26 ? "pangram" : "not pangram";
     }
