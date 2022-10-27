@@ -24,16 +24,37 @@ class Result {
         List<Integer> results=new ArrayList<>();
         
         int stickSize=sticks.size();
+        // if(stickSize<=3){
+        //   results.add(-1);
+        //   return results;
+        // }
+          
+        for (int idx=0; idx<stickSize-2; idx++){
+         // System.out.println(sticks.get(idx)+" | "+sticks.get(idx+1)+" | "+sticks.get(idx+2));
+        
           
 
-        if(sticks.get(0)+sticks.get(1)>sticks.get(2) && 
-             sticks.get(0)+sticks.get(2)>sticks.get(1) &&
-             sticks.get(1)+sticks.get(2)>sticks.get(0)
-             )
-                System.out.println("Triangle");
-          else
-                System.out.println("Nope");
-          
+        if(sticks.get(idx)+sticks.get(idx+1)>sticks.get(idx+2) && 
+             sticks.get(idx)+sticks.get(idx+2)>sticks.get(idx+1) &&
+             sticks.get(idx+1)+sticks.get(idx+2)>sticks.get(idx)
+             ){
+              System.out.println("Triangle");
+              results.add(idx);
+              results.add(idx+1);
+              results.add(idx+2);
+              // if(sticks.get(idx)>results.get(idx)){
+              //     results.set(idx,sticks.get(idx));
+              // }
+              // if(sticks.get(idx+1)>results.get(idx+1))
+              //   results.set(idx+1,sticks.get(idx+1));
+              
+              
+            //  results.add(sticks.get(idx+2));
+             }else{
+              
+              System.out.println("Nope");
+             }
+        }
         // sides: A B C
         // to see if triangle is true
         // A+B>C, A+C>B, B+C>A
@@ -42,12 +63,7 @@ class Result {
         return results;
     }
     
-    public boolean isTriangle(List<Integer> input, int size){
-          
-      
-      return true;
-      
-    }
+   
 
 }
 
