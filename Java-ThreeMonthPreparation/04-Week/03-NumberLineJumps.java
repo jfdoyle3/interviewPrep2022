@@ -12,55 +12,31 @@ import static java.util.stream.Collectors.toList;
 
 class Result {
 
-    /*
-     * Complete the 'kangaroo' function below.
-     *
-     * The function is expected to return a STRING.
-     * The function accepts following parameters:
-     *  1. INTEGER x1
-     *  2. INTEGER v1
-     *  3. INTEGER x2
-     *  4. INTEGER v2
-     */
 
     public static String kangaroo(int x1, int v1, int x2, int v2) {
-     List<Integer> listA=new ArrayList<>();
-    List<Integer> listB=new ArrayList<>();
-    
-    /* 
-     * 1571 4240 9023 4234  -  YES
-     * 1928 4306 5763 4301  -  YES
-     * 4523 8092 9419 8076  -  YES
-     * 0 3 4 2   - yes 
-     * 0 2 5 3   - no
-     */
-    
-    int hops=0;
-    int k1=0;
-    int k2=0;
+
+        int hops=0;
+        int k1=0;
+        int k2=0;
   
-    do{
-      k1=x1+v1;
-      x1=k1;
-      
-      k2=x2+v2;
-      x2=k2;
-      
-      
-      listA.add(k1);
-      listB.add(k2);
-      if(k1==k2){
-        return "YES";
-      }
-      
-      hops++;
-    }while(hops<20);
-    // System.out.println(listA);
-    // System.out.println(listB);
-    return "NO";
+        do{
+          k1=x1+v1;
+          x1=k1;
+          
+          k2=x2+v2;
+          x2=k2;
+          
+          if(k1==k2){
+            return "YES";
+          }
+          
+          hops++;
+        }while(hops<3000);
+
+        return "NO";
     }
     
-    }
+  }
 
 
 
