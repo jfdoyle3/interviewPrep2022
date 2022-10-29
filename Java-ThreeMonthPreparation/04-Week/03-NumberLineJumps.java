@@ -27,9 +27,13 @@ class Result {
      List<Integer> listA=new ArrayList<>();
     List<Integer> listB=new ArrayList<>();
     
-    
-    // 0 3 4 2   - yes 
-    // 0 2 5 3   - no
+    /* 
+     * 1571 4240 9023 4234  -  YES
+     * 1928 4306 5763 4301  -  YES
+     * 4523 8092 9419 8076  -  YES
+     * 0 3 4 2   - yes 
+     * 0 2 5 3   - no
+     */
     
     int hops=0;
     int k1=0;
@@ -45,13 +49,15 @@ class Result {
       
       listA.add(k1);
       listB.add(k2);
-      
+      if(k1==k2){
+        return "YES";
+      }
       
       hops++;
     }while(hops<20);
-    System.out.println(listA);
-    System.out.println(listB);
-    return "idk";
+    // System.out.println(listA);
+    // System.out.println(listB);
+    return "NO";
     }
     
     }
