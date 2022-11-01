@@ -19,51 +19,51 @@ class Result {
      * The function accepts INTEGER_ARRAY sticks as parameter.
      */
 
-    public static List<Integer> maximumPerimeterTriangle(List<Integer> sticks) {  
-      
-        List<Integer> results=new ArrayList<>();
-        
-        int stickSize=sticks.size();
-        // if(stickSize<=3){
-        //   results.add(-1);
-        //   return results;
-        // }
-          
-        for (int idx=0; idx<stickSize-2; idx++){
-         // System.out.println(sticks.get(idx)+" | "+sticks.get(idx+1)+" | "+sticks.get(idx+2));
-        
-          
+    public static List<Integer> maximumPerimeterTriangle(List<Integer> sticks) { 
+         
+      Collections.sort(sticks);
+       int[] results=new int[4];
+        int stickSize=sticks.size()-2;
 
-        if(sticks.get(idx)+sticks.get(idx+1)>sticks.get(idx+2) && 
-             sticks.get(idx)+sticks.get(idx+2)>sticks.get(idx+1) &&
-             sticks.get(idx+1)+sticks.get(idx+2)>sticks.get(idx)
-             ){
-              System.out.println("Triangle");
-              results.add(idx);
-              results.add(idx+1);
-              results.add(idx+2);
-              // if(sticks.get(idx)>results.get(idx)){
-              //     results.set(idx,sticks.get(idx));
-              // }
-              // if(sticks.get(idx+1)>results.get(idx+1))
-              //   results.set(idx+1,sticks.get(idx+1));
-              
-              
-            //  results.add(sticks.get(idx+2));
-             }else{
-              
-              System.out.println("Nope");
-             }
+        for(int i=0; i<stickSize; i++){
+
+            System.out.println(sticks.get(i)+"  "+sticks.get(i+1)+"  "+sticks.get(i+2));
+            boolean triangle=isTriangle(sticks.get(i),sticks.get(i+1),sticks.get(i+2));
+
+            if(triangle){
+                System.out.println("Yes");
+                results[0]=sticks.get(i);
+                results[1]=sticks.get(i+1);
+                results[2]=sticks.get(i+2);
+               } else{
+                   results[3]=-1;
+               }
+            }   
+        List<Integer> a=new ArrayList<>();
+        
+        if(results[0]==0){
+           a.add(results[3]);
+           return a;
         }
-        // sides: A B C
-        // to see if triangle is true
-        // A+B>C, A+C>B, B+C>A
-        
-        
-        return results;
-    }
     
-   
+        for(int idx=0; idx<3; idx++)
+            a.add(results[idx]);
+        
+                                   
+       return a;
+}
+
+    public static boolean isTriangle(int a, int b, int c){
+        boolean state=false;
+
+        if(a+b>c &&
+           a+c>b &&
+           b+c>a
+           )
+               state=true;
+      return state;
+
+    }
 
 }
 
