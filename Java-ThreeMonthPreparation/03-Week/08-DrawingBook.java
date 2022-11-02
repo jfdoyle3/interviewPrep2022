@@ -25,6 +25,9 @@ class Result {
       
         int halfBookPageNumber=n/2;
         int pageDifference=n-p;
+		
+		boolean leftPage=false;
+		boolean rightPage=false
         
         System.out.println(halfBookPageNumber);
         System.out.println(pageDifference);
