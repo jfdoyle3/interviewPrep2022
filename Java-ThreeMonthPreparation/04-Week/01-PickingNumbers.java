@@ -20,20 +20,11 @@ class Result {
      */
 
     public static int pickingNumbers(List<Integer> a) {
-      Collections.sort(a);
-      List<Integer> results=new ArrayList<>();
-      int counter=0;
-
-      for(int idx=0; idx<a.size()-1; idx++){
-          if(a.get(idx)-a.get(idx+1)<=1){
-            results.add(a.get(idx));
-            results.add(a.get(idx+1));
-            idx++;
-          }
-      }
-        System.out.println(results);
-        return results.size();
+        Collections.sort(a);
+        
+        
     }
+
 }
 
 public class Solution {
@@ -56,4 +47,3 @@ public class Solution {
         bufferedWriter.close();
     }
 }
-
