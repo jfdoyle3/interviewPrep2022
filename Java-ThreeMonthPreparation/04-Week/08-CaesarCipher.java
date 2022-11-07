@@ -22,30 +22,32 @@ class Result {
      */
 
     public static String caesarCipher(String s, int k) {
-     char[] alphaLower=new char[]{'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+      char[] alphaLower=new char[]{'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
     char[] alphaUpper=new char[]{'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
     char[] input=s.toCharArray();
+    
     String results="";
+    
     for(int idx=0; idx<input.length; idx++){
      for(char letter='a'; letter<='z'; letter++){
-       int  lowerCipher=((input[idx]-97)+k)%26;
-       int  upperCipher=((input[idx]-65)+k)%26;
+      if((int)input[idx]>=91 && (int)input[idx]<=96 ||(int)input[idx]>=32 && (int)input[idx]<=64 ||(int)input[idx]>=123 && (int)input[idx]<=126 ){
+        results+=input[idx];
+        break;
+        }
+      int  lowerCipher=((input[idx]-97)+k)%26;
+      int  upperCipher=((input[idx]-65)+k)%26;
+        
+      if(input[idx]==letter)
+        results+=alphaLower[lowerCipher];
 
-     //  System.out.print(lowerCipher+" | ");
-       if(input[idx]==letter)
-              System.out.print(alphaLower[lowerCipher]+" | ");
+      if(input[idx]==Character.toUpperCase(letter))
+        results+=alphaUpper[upperCipher];
 
-
-       if(input[idx]==Character.toUpperCase(letter))
-            System.out.print(alphaUpper[upperCipher]+" | ");
-
-
-       results=results+alphaLower+alphaUpper;
-     }
-
+  
+      }
     }
-    System.out.print(results);
-
+    return results;
+  }
 }
 
 public class Solution {
