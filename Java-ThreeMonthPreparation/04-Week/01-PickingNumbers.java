@@ -12,19 +12,27 @@ import static java.util.stream.Collectors.toList;
 
 class Result {
 
-    /*
-     * Complete the 'pickingNumbers' function below.
-     *
-     * The function is expected to return an INTEGER.
-     * The function accepts INTEGER_ARRAY a as parameter.
-     */
 
     public static int pickingNumbers(List<Integer> a) {
-        Collections.sort(a);
-        
-        
+      Collections.sort(a);
+      List<Integer> results=new ArrayList<>();
+      int counter=0;
+      
+      for(int idx=0; idx<a.size()-1; idx++){
+        for(int idx2=1; idx<a.size()-2; idx2++){
+          System.out.println(a.get(idx2)-a.get(idx));
+          if(a.get(idx)-a.get(idx2)<=1){
+            results.add(a.get(idx));
+            results.add(a.get(idx+1));
+            idx++;
+          }
+          else
+            break;
+        }
+      }
+        System.out.println(results);
+        return results.size();
     }
-
 }
 
 public class Solution {
