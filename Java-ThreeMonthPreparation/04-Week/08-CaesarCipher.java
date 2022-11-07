@@ -22,16 +22,29 @@ class Result {
      */
 
     public static String caesarCipher(String s, int k) {
-      char[] alpha=new char[]{'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
-      char[] input=s.toCharArray();
-      for(int idx=0; idx<input.length-1; idx++){
-        int lowerCipher=((input[idx]-97)+k)%26;    
-        System.out.print(alpha[lowerCipher]);
+     char[] alphaLower=new char[]{'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+    char[] alphaUpper=new char[]{'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+    char[] input=s.toCharArray();
+    String results="";
+    for(int idx=0; idx<input.length; idx++){
+     for(char letter='a'; letter<='z'; letter++){
+       int  lowerCipher=((input[idx]-97)+k)%26;
+       int  upperCipher=((input[idx]-65)+k)%26;
+
+     //  System.out.print(lowerCipher+" | ");
+       if(input[idx]==letter)
+              System.out.print(alphaLower[lowerCipher]+" | ");
+
+
+       if(input[idx]==Character.toUpperCase(letter))
+            System.out.print(alphaUpper[upperCipher]+" | ");
+
+
+       results=results+alphaLower+alphaUpper;
+     }
+
     }
-      
-      
-      return s;
-    }
+    System.out.print(results);
 
 }
 
