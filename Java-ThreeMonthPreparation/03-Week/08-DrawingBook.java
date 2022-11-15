@@ -36,7 +36,7 @@ class Result {
         for(int idx=1; idx<n; idx+=2){
           System.out.println(idx);
         }
-        
+        System.out.println("-------------------------------");
         for(int idx=n; idx>0; idx-=2){
           System.out.println(idx);
         }
