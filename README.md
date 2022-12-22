@@ -1,2 +1,8 @@
-# startRepo
-Repo that has my current .gitignore 2/12/2022
+#Interview Prep 2022.
+
+Hacker Rank:
+
+Java- Three Month Perperation
+Alogrithms
+Java Language core
+SQL core
